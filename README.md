@@ -1,5 +1,5 @@
 # Local-Colab
-Deploying Google Colab Docker Environment on Ubuntu 20 
+Deploying Google Colab Docker Environment on Ubuntu 20.04.6 LTS 
 
 ## Prerequisites
 
