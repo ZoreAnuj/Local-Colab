@@ -1,0 +1,38 @@
+{
+    "dockerFile": "Dockerfile",
+    "remoteUser": "zero",
+
+  # Change your workspace source and target depending on your respository.
+    "workspaceMount": "source=${localEnv:HOME}/colab,target=/home/zero/colab,type=bind",
+
+  # This too
+    "workspaceFolder": "/home/zero/colab/src",
+    "runArgs": [
+        "--network=host",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt=seccomp:unconfined",
+        "--security-opt=apparmor:unconfined",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        "--volume=/mnt/wslg:/mnt/wslg",
+        "--ipc=host",
+        "--gpus=all"
+
+    ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}", 
+        "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+        "PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+        "LIBGL_ALWAYS_SOFTWARE": "1" 
+    },
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+}
